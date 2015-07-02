@@ -6,6 +6,14 @@
         "views": "path:./public/templates"
     },
 
+    "api" : {
+        "wunderground" : {
+            "api_key" : "18e84dd5987122c1",
+            "base_url" : "http://api.wunderground.com/api/",
+            "conditions_context" : "conditions/"
+        }
+    },
+
     "view engines": {
         "dust": {
             "module": "engine-munger",
