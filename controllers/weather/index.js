@@ -3,6 +3,16 @@
 var weather = require('../../lib/async_weather');
 
 module.exports = function(router) {
+	// Logging all the requests
+	router.all('/', function(request,response,next){
+		console.log("Body : " + request.body);
+		console.log("Query Parameters : " + request.query);
+		console.log("Query Parameters via q: " + request.query.q);
+		console.log("IP : " + request.ip);
+		console.log("Path : " + request.path);
+		console.log("Original Url : " + request.originalUrl);
+		next();
+	});
 	router.get('/', function(request,response){
 		var locations = [{"stateCode" : "CA", "city" : "Campbell"},{"stateCode" : "NE", "city" : "Omaha"}, {"stateCode" : "TX", "city" : "Austin"},{"stateCode" : "MD", "city" : "Timonium"}];
 		var apiEndpoints = [];
