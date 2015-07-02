@@ -1,0 +1,24 @@
+{>"layouts/master" /}
+{<title}
+	{title}
+{/title}
+
+{<body}
+<h2>Welcome to {appName}!!</h2>
+<h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
+
+	<table border="2">
+		<tr>
+			<th>Location</th>
+			<th>Temperature in Fahrenheit</th>
+			<th>Temperature in Celsius</th>
+		</tr>
+		{#weatherReports}
+		<tr>
+			<td>{current_observation.display_location.full}</td>
+			<td>{current_observation.temp_f}</td>
+			<td>{current_observation.temp_c}</td>
+		</tr>
+		{/weatherReports}
+	</table>
+{/body}

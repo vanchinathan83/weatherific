@@ -20,7 +20,8 @@ module.exports = function(router) {
 			apiEndpoints.push(getAPIEndpoint(location,request));
 		});
 		weather.getAsyncWeather(apiEndpoints,function(results){
-			response.send(results);
+			//response.send(results);
+			response.render('weather/index', {"title" : "WeatherMan","appName" : "Weatherific","weatherReports" : results});
 		});
 	});
 };
