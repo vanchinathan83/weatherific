@@ -40,7 +40,7 @@
 				<div class="item active">
 					<div class="container">
 						<div class="wdisplay">
-							<h2> Temperature in {current_observation.display_location.full} </h2>
+							<h2> Temperature in {current_observation.display_location.full} <span><img="{current_observation.icon_url}"/></span></h2>
 							<p>{current_observation.temp_f}<span> F</span></p>
 							<p>{current_observation.temp_c}<span> C</span></p>
 						</div>
@@ -50,7 +50,7 @@
 	    		<div class="item">
 					<div class="container">
 						<div class="wdisplay">
-							<h2> Temperature in {current_observation.display_location.full} </h2>
+							<h2> Temperature in {current_observation.display_location.full} <span><img="{current_observation.icon_url}"/></span></h2>
 							<p>{current_observation.temp_f}<span> F</span></p>
 							<p>{current_observation.temp_c}<span> C</span></p>
 						</div>
