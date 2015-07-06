@@ -6,7 +6,8 @@
 {<body}
 <h2>Welcome to {appName}!!</h2>
 <h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
-
+<div><a class="toggler" href="#">Show temperature in Celcius</a></div>
+	
 	{! <table border="2">
 		<tr>
 			<th>Location</th>
@@ -38,25 +39,18 @@
 	  	{#weatherReports}
 	  		{@if cond="{$idx} == 0"}
 				<div class="item active">
+			{:else}
+				<div class="item">
+			{/if}
 					<div class="container">
 						<div class="wdisplay">
-							<h2> Temperature in {current_observation.display_location.full} <span><img="{current_observation.icon_url}"/></span></h2>
-							<p>{current_observation.temp_f}<span> F</span></p>
-							<p>{current_observation.temp_c}<span> C</span></p>
+							<h2> Temperature in {current_observation.display_location.full}</h2>
+							<p><span><img src="{current_observation.icon_url|s}" width="75" height="10"></span></p>
+							<div class="fahrenheit">{current_observation.temp_f}<span> F&deg; </span></div>
+							<div class="celcius">{current_observation.temp_c}<span> C&deg; </span></div>
 						</div>
 					</div>
 		    	</div>
-	    	{:else}
-	    		<div class="item">
-					<div class="container">
-						<div class="wdisplay">
-							<h2> Temperature in {current_observation.display_location.full} <span><img="{current_observation.icon_url}"/></span></h2>
-							<p>{current_observation.temp_f}<span> F</span></p>
-							<p>{current_observation.temp_c}<span> C</span></p>
-						</div>
-					</div>
-		    	</div>
-	    	{/if}
 		{:else}
 			<div class="item active">
 	      		<p> No weather reports to show !! </p>
