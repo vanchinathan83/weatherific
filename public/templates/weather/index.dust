@@ -19,6 +19,10 @@
 			<td>{current_observation.temp_f}</td>
 			<td>{current_observation.temp_c}</td>
 		</tr>
+		{:else}
+			<tr>
+				<td> No weather reports to show !! </td>
+			</tr>
 		{/weatherReports}
 	</table>
 {/body}
