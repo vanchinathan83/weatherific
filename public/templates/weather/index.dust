@@ -4,30 +4,11 @@
 {/title}
 
 {<body}
-<h2>Welcome to {appName}!!</h2>
-<h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
-<div><a class="toggler" href="#">Show temperature in Celcius</a></div>
-	
-	{! <table border="2">
-		<tr>
-			<th>Location</th>
-			<th>Temperature in Fahrenheit</th>
-			<th>Temperature in Celsius</th>
-		</tr>
-		{#weatherReports}
-		<tr>
-			<td>{current_observation.display_location.full}</td>
-			<td>{current_observation.temp_f}</td>
-			<td>{current_observation.temp_c}</td>
-		</tr>
-		{:else}
-			<tr>
-				<td> No weather reports to show !! </td>
-			</tr>
-		{/weatherReports}
-	</table>
-!}
-	<div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+<div class="container">
+	<h2>Welcome to {appName}!!</h2>
+	<h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
+	<div><a class="toggler" href="#">Show temperature in Celcius</a></div>
+	<div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
 	  <ol class="carousel-indicators">
 	    <li data-target="#weatherCarousel" data-slide-to="0" class="active"></li>
 	    <li data-target="#weatherCarousel" data-slide-to="1"></li>
@@ -38,19 +19,18 @@
 	  <div class="carousel-inner" role="listbox">
 	  	{#weatherReports}
 	  		{@if cond="{$idx} == 0"}
-				<div class="item active">
+				<div id="item-{$idx}" class="item active">
 			{:else}
-				<div class="item">
+				<div id="item-{$idx}" class="item">
 			{/if}
-					<div class="container">
-						<div class="wdisplay">
-							<h2> Temperature in {current_observation.display_location.full}</h2>
-							<p><span><img src="{current_observation.icon_url|s}" width="75" height="10"></span></p>
-							<div class="fahrenheit">{current_observation.temp_f}<span> F&deg; </span></div>
-							<div class="celcius">{current_observation.temp_c}<span> C&deg; </span></div>
-						</div>
+					<div class="wdisplay">
+						<h2><span class="location text-justify text-capitalize">{current_observation.display_location.full}</span></h2>
+						<p><span><img src="{current_observation.icon_url|s}" width="75" height="10"></span></p>
+						<div class="fahrenheit">{current_observation.temp_f}<span> F&deg; </span></div>
+						<div class="celcius">{current_observation.temp_c}<span> C&deg; </span></div>
+						<div class="weather">{current_observation.weather}</div>
 					</div>
-		    	</div>
+				</div>
 		{:else}
 			<div class="item active">
 	      		<p> No weather reports to show !! </p>
@@ -67,4 +47,7 @@
 	    <span class="sr-only">Next</span>
 	  </a>
 	</div>
+	<div id="imageresults">
+	</div>
+</div>
 {/body}
