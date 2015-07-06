@@ -7,7 +7,7 @@
 <h2>Welcome to {appName}!!</h2>
 <h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
 
-	<table border="2">
+	{! <table border="2">
 		<tr>
 			<th>Location</th>
 			<th>Temperature in Fahrenheit</th>
@@ -25,4 +25,52 @@
 			</tr>
 		{/weatherReports}
 	</table>
+!}
+	<div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+	  <ol class="carousel-indicators">
+	    <li data-target="#weatherCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#weatherCarousel" data-slide-to="1"></li>
+	    <li data-target="#weatherCarousel" data-slide-to="2"></li>
+	    <li data-target="#weatherCarousel" data-slide-to="3"></li>
+	  </ol>
+
+	  <div class="carousel-inner" role="listbox">
+	  	{#weatherReports}
+	  		{@if cond="{$idx} == 0"}
+				<div class="item active">
+					<div class="container">
+						<div class="wdisplay">
+							<h2> Temperature in {current_observation.display_location.full} </h2>
+							<p>{current_observation.temp_f}<span> F</span></p>
+							<p>{current_observation.temp_c}<span> C</span></p>
+						</div>
+					</div>
+		    	</div>
+	    	{:else}
+	    		<div class="item">
+					<div class="container">
+						<div class="wdisplay">
+							<h2> Temperature in {current_observation.display_location.full} </h2>
+							<p>{current_observation.temp_f}<span> F</span></p>
+							<p>{current_observation.temp_c}<span> C</span></p>
+						</div>
+					</div>
+		    	</div>
+	    	{/if}
+		{:else}
+			<div class="item active">
+	      		<p> No weather reports to show !! </p>
+	    	</div>
+		{/weatherReports}
+	  </div>
+
+	  <a class="left carousel-control" href="#weatherCarousel" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#weatherCarousel" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
 {/body}
