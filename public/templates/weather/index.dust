@@ -7,7 +7,7 @@
 <div class="container">
 	<h2>Welcome to {appName}!!</h2>
 	<h5> Powered By <img src="http://icons.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground Logo" /></h5>
-	<div><a class="toggler" href="#">Show temperature in Celcius</a></div>
+	<div class="menu"><a class="glyphicon glyphicon-plus left" aria-hidden="true" href="#">Add Another Location</a><a id="toggler" class="right" href="#">Show temperature in Celcius</a></div>
 	<div id="weatherCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
 	  <ol class="carousel-indicators">
 	    <li data-target="#weatherCarousel" data-slide-to="0" class="active"></li>
@@ -46,6 +46,24 @@
 	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	    <span class="sr-only">Next</span>
 	  </a>
+	</div>
+	<div id="content">
+	    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+	        <li class="active"><a href="#news" data-toggle="tab">News</a></li>
+	        <li><a href="#photos" data-toggle="tab">Photos</a></li>
+	    </ul>
+	    <div id="data-tab-content" class="tab-content">
+	        <div class="tab-pane active" id="news">
+	            <h1>News</h1>
+	            <p>News</p>
+	        </div>
+	        <div class="tab-pane" id="photos">
+	            <h1>Photos</h1>
+	            <p>Photos</p>
+	        </div>
+	    </div>
+</div>
+	<div id="newsresults">
 	</div>
 	<div id="imageresults">
 	</div>

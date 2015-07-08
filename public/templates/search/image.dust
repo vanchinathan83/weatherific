@@ -1,0 +1,5 @@
+{#imageSearchResults}
+		<a href="{SourceUrl|s}"><img src="{Thumbnail.MediaUrl|s}" width=100 height=100></a>
+{:else}
+	<b> No Images Found </b>
+{/imageSearchResults}

@@ -1,41 +1,50 @@
 $(document).ready(function(){
-	$("#weatherCarousel").on("slide.bs.carousel", function(){
-		var classSelector = $('.item.active');
-		var index = $('.item.active').index() + 1;
-		if(index === 4){
-			index = 0;
-		}
-		var location = $("#item-" + index).text().split(',');
-		var city = location[0];
-		var state = location[1].slice(0,3).trim();
-		var url = "/search/image/" + city + "/" + state;
-		$.ajax({
-			type: 'GET',
-			url: url
-		}).done(function(data){
-			var html = "";
-			data.d.results.forEach(function(result){
-				html += "<a href=\"" + result.SourceUrl + "\"><img src=\"" + result.Thumbnail.MediaUrl +"\" width=100 height=100></a>";
-			});
-			$("#imageresults").html(html);
-		});
+    $('#tabs').tab();
+    getNewsAndPhotos($,true);
+	$('#weatherCarousel').on('slide.bs.carousel', function(){
+		getNewsAndPhotos($,false);
 	})
 	
-	$(".celcius").hide();
-	$(".toggler").click(function(){
-		if($(".celcius").css('display') === 'none'){
-			$(".toggler").text("Show temperature in Fahrenheit");
+	$('.celcius').hide();
+	$('#toggler').click(function(){
+		if($('.celcius').css('display') === 'none'){
+			$('#toggler').text('Show temperature in Fahrenheit');
 		}
 		else{
-			$(".toggler").text("Show temperature in Celcius");
+			$('#toggler').text('Show temperature in Celcius');
 		}
-		$(".celcius").toggle();
-		$(".fahrenheit").toggle();
-	});
-	$('#weatherCarousel').click(function() {
-  		
+		$('.celcius').toggle();
+		$('.fahrenheit').toggle();
 	});
 });
+
+
+function getNewsAndPhotos($,isStart){
+	var classSelector = $('.item.active');
+	var index = 0
+	if(!isStart)
+		index = $('.item.active').index() + 1;
+	if(index === 4)
+		index = 0;
+	var location = $('#item-' + index).text().split(',');
+	var city = location[0];
+	var state = location[1].slice(0,3).trim();
+	var image_search_url = '/search/image/' + city + '/' + state;
+	var news_search_url = '/search/news/' + city + '/' + state;
+	$.ajax({
+			type: 'GET',
+			url: image_search_url
+		}).done(function(html){
+			$('#photos').html(html);
+		});
+
+		$.ajax({
+			type: 'GET',
+			url: news_search_url
+		}).done(function(html){
+			$('#news').html(html);
+		});
+}
 
 
 

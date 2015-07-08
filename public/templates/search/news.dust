@@ -1,0 +1,7 @@
+{#news}
+	<h4><a href="{Url|s}">{Title}</a></h4>
+	<p>{Description}</p>
+	<pre>Source : {Source}</pre>
+{:else}
+	<b> No Related News Found!!</b>
+{/news}
