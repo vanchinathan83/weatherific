@@ -11,6 +11,11 @@
             "api_key" : "18e84dd5987122c1",
             "base_url" : "http://api.wunderground.com/api/",
             "conditions_context" : "conditions/"
+        },
+        "bing" : {
+            "auth_key" : "OklsOXpXd0o1TVVZcUVrdTZZaUFMdDlnMzhtbEhLUzJQdmRLWHYwU1FmTlU=",
+            "image_search_endpoint" : "https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27",
+            "news_search_endpoint" : "https://api.datamarket.azure.com/Bing/Search/v1/News?Query=%27"
         }
     },
 

@@ -8,16 +8,10 @@ $(document).ready(function(){
 		var location = $("#item-" + index).text().split(',');
 		var city = location[0];
 		var state = location[1].slice(0,3).trim();
-		console.log(city);
-		console.log(state);
-		console.log(location);
-		var searchtext = (city + " " + state).replace(" " , "%27");
+		var url = "/search/image/" + city + "/" + state;
 		$.ajax({
 			type: 'GET',
-			url: "https://api.datamarket.azure.com/Bing/Search/Image?Query=%27+"+searchtext+"%27&$format=json",
-			headers : { 
-				"Authorization" : "Basic " + "OklsOXpXd0o1TVVZcUVrdTZZaUFMdDlnMzhtbEhLUzJQdmRLWHYwU1FmTlU="
-			}
+			url: url
 		}).done(function(data){
 			var html = "";
 			data.d.results.forEach(function(result){
