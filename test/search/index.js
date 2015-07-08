@@ -11,7 +11,7 @@ describe('/search', function () {
     var app, mock;
 
 
-    beforeEach(function (done) {
+    before(function (done) {
         app = express();
         app.on('start', done);
         app.use(kraken({
@@ -19,11 +19,10 @@ describe('/search', function () {
         }));
 
         mock = app.listen(1337);
-
     });
 
 
-    afterEach(function (done) {
+    after(function (done) {
         mock.close(done);
     });
 
@@ -31,30 +30,21 @@ describe('/search', function () {
     it('should return a 200 when searching for news', function (done) {
         request(mock)
             .get('/search/news/austin/tx')
-            .expect(200)
             .expect('Content-Type', /html/)
-            .end(function (err, res) {
-                done(err);
-            });
+            .expect(200,done);
     });
 
     it('should return a 200 when searching for image', function (done) {
         request(mock)
             .get('/search/image/austin/tx')
-            .expect(200)
             .expect('Content-Type', /html/)
-            .end(function (err, res) {
-                done(err);
-            });
+            .expect(200,done);
     });
 
     it('should return a 404 when url is invalid', function(done){
         request(mock)
             .get('/search/invalidurl')
-            .expect(404)
-            .end(function(err,res){
-                done(err);
-            });
+            .expect(404,done);
     });
 
 });

@@ -31,20 +31,14 @@ describe('/weather', function () {
     it('should return a 200', function (done) {
         request(mock)
             .get('/weather')
-            .expect(200)
             .expect('Content-Type', /html/)
-            .end(function (err, res) {
-                done(err);
-            });
+            .expect(200,done);
     });
 
     it('should return a 404 when url is invalid', function(done){
         request(mock)
             .get('/invalidurl')
-            .expect(404)
-            .end(function(err,res){
-                done(err);
-            });
+            .expect(404,done);
     });
 
 });
