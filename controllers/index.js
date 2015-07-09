@@ -8,7 +8,7 @@ module.exports = function (router) {
 
     var model = new IndexModel();
     router.get('/', function (req, res) {
-        res.redirect(301,"/weather");
+        res.redirect(301,'/weather');
     });
 
 };
