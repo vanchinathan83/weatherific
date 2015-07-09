@@ -33,11 +33,8 @@ describe('/', function () {
     it('should say "hello"', function (done) {
         request(mock)
             .get('/')
-            .expect(200)
-            .expect('Content-Type', /html/)
-            
-                .expect(/Hello, /)
-            
+            .expect(301)
+            .expect('Content-Type', "text/plain; charset=utf-8")
             .end(function (err, res) {
                 done(err);
             });
