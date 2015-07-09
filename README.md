@@ -1,9 +1,9 @@
 # Weatherific
 
-###Installation
-    * Download the repository and do **npm install**
-    * Then start the server using **npm start**
-    * Tests can be run via **npm test**
+### Installation
+    * Download the repository and do "npm install"
+    * Then start the server using "npm start"
+    * Tests can be run via "npm test"
     
 ### IDE
     * Sublime Text
